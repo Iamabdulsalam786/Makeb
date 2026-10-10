@@ -110,6 +110,63 @@ export function initMakBotWidget() {
     }
   ];
 
+  let leadCaptured = false;
+  let miniFormEl = null;
+
+  function appendMiniForm() {
+    if (!body || leadCaptured || miniFormEl) return;
+
+    miniFormEl = document.createElement('div');
+    miniFormEl.className = 'chat-mini-form-card';
+    miniFormEl.innerHTML = `
+      <div class="chat-mini-form-head">
+        <p class="chat-mini-form-title">Direct WhatsApp &amp; Email Advisory</p>
+        <span class="chat-mini-form-badge">Fast Response</span>
+      </div>
+      <form class="chat-mini-form" id="chatMiniInlineForm">
+        <input type="tel" class="chat-mini-input" id="chatMiniPhone" placeholder="WhatsApp / Phone (e.g. +1 555 123 4567)" required />
+        <input type="email" class="chat-mini-input" id="chatMiniEmail" placeholder="Corporate / Work Email" required />
+        <button type="submit" class="chat-mini-submit-btn">
+          <span>Connect via WhatsApp &amp; Email</span>
+          <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="9 18 15 12 9 6"></polyline></svg>
+        </button>
+      </form>
+    `;
+
+    body.appendChild(miniFormEl);
+    body.scrollTop = body.scrollHeight;
+
+    const miniForm = miniFormEl.querySelector('#chatMiniInlineForm');
+    const miniPhone = miniFormEl.querySelector('#chatMiniPhone');
+    const miniEmail = miniFormEl.querySelector('#chatMiniEmail');
+
+    if (miniForm) {
+      miniForm.addEventListener('submit', (e) => {
+        e.preventDefault();
+        const phoneVal = miniPhone ? miniPhone.value.trim() : '';
+        const emailVal = miniEmail ? miniEmail.value.trim() : '';
+
+        if (!phoneVal || !emailVal) return;
+
+        leadCaptured = true;
+
+        miniFormEl.innerHTML = `
+          <div class="chat-mini-success">
+            <div class="chat-mini-success-icon">✓</div>
+            <div>
+              <strong>Contact Details Received!</strong>
+              <p>Our senior practice director will message you directly on WhatsApp at <strong>${phoneVal}</strong> and email at <strong>${emailVal}</strong> within 24 business hours.</p>
+            </div>
+          </div>
+        `;
+
+        setTimeout(() => {
+          appendBotMessage(`Great! I've saved your details. Our director will follow up with you directly on WhatsApp (<strong>${phoneVal}</strong>) and email (<strong>${emailVal}</strong>). If you have any other questions, feel free to ask me!`);
+        }, 350);
+      });
+    }
+  }
+
   function getSmartAnswer(query) {
     const text = query.toLowerCase().trim();
 
@@ -118,6 +175,7 @@ export function initMakBotWidget() {
     const phoneMatch = text.match(/(?:\+?\d{1,4}[ -]?)?\(?\d{2,4}\)?[ -]?\d{3,4}[ -]?\d{3,4}/);
 
     if (emailMatch || phoneMatch) {
+      leadCaptured = true;
       const contactInfo = [emailMatch ? emailMatch[0] : null, phoneMatch ? phoneMatch[0] : null].filter(Boolean).join(' and ');
       return `Thank you! We've captured your contact info (${contactInfo}). A senior practice director will contact you via WhatsApp/Email within 24 business hours.`;
     }
@@ -132,7 +190,7 @@ export function initMakBotWidget() {
     }
 
     // Fallback answer
-    return `Thank you for asking! MAKCOMMs specializes in custom enterprise software, ERP modernization (Epicor & SAP), dedicated tech talent, and 24/7 global operations. Would you like to schedule a quick consultation? Type your email or phone number right here, and our practice lead will reach out to you directly!`;
+    return `Thank you for asking! MAKCOMMs specializes in custom enterprise software, ERP modernization (Epicor & SAP), dedicated tech talent, and 24/7 global operations. Would you like to schedule a quick consultation? Fill in your WhatsApp and email below, and our practice lead will reach out to you directly!`;
   }
 
   function appendBotMessage(text) {
@@ -158,6 +216,17 @@ export function initMakBotWidget() {
     setTimeout(() => {
       const answer = getSmartAnswer(text);
       appendBotMessage(answer);
+
+      // Prompt user with mini form if not captured yet
+      if (!leadCaptured) {
+        setTimeout(() => {
+          if (!miniFormEl) {
+            appendMiniForm();
+          } else {
+            body.scrollTop = body.scrollHeight;
+          }
+        }, 300);
+      }
     }, 400);
   }
 
@@ -167,6 +236,12 @@ export function initMakBotWidget() {
     pill.addEventListener('click', () => {
       const prompt = pill.getAttribute('data-prompt') || pill.textContent;
       sendQuery(prompt);
+      if (prompt.toLowerCase().includes('callback') || prompt.toLowerCase().includes('call')) {
+        setTimeout(() => {
+          const phoneInput = document.getElementById('chatMiniPhone');
+          if (phoneInput) phoneInput.focus();
+        }, 800);
+      }
     });
   });
 
@@ -181,35 +256,6 @@ export function initMakBotWidget() {
         sendQuery(input.value);
         input.value = '';
       }
-    });
-  }
-
-  // Handle Lead Capture Micro-Form inside Chat
-  if (leadForm) {
-    leadForm.addEventListener('submit', (e) => {
-      e.preventDefault();
-
-      const email = leadEmail ? leadEmail.value.trim() : '';
-      const code = leadCountryCode ? leadCountryCode.value : '+1';
-      const phone = leadPhone ? leadPhone.value.trim() : '';
-
-      if (!email || !phone) return;
-
-      const fullPhone = `${code} ${phone}`;
-
-      // Hide form & show success confirmation in card
-      leadForm.style.display = 'none';
-      if (leadSuccess) {
-        leadSuccess.style.display = 'flex';
-        if (leadSuccessText) {
-          leadSuccessText.innerHTML = `Our director will contact you directly at <strong>${fullPhone}</strong> and <strong>${email}</strong> within 24 business hours.`;
-        }
-      }
-
-      // Append confirmation in chat bubble stream
-      setTimeout(() => {
-        appendBotMessage(`<strong>Callback Confirmed!</strong> Thank you. We've logged your contact request for <strong>${fullPhone}</strong> (${email}). A senior practice director will follow up with you via WhatsApp or Phone shortly.`);
-      }, 300);
     });
   }
 }
