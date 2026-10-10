@@ -1,0 +1,439 @@
+/* ==========================================================================
+   COMPONENT: ABOUT US SECTION (.about-section)
+   Minimalist, Ultra-Clean & Premium Executive Value Proposition
+   - Short, punchy, uncluttered architecture
+   - "Tailored Solutions for Businesses" core focus
+   - Refined Glassmorphic Pillars & Understated Micro-Stats
+   - Full dark/light mode compatibility & respects reduced motion
+   ========================================================================== */
+
+.about-section {
+  position: relative;
+  padding: 5.5rem 0 5rem;
+  background-color: var(--bg-primary, #0A0E17);
+  color: var(--text-primary, #F8FAFC);
+  border-top: 1px solid rgba(255, 255, 255, 0.06);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+  overflow: hidden;
+  transition: background-color var(--transition-smooth, 0.35s ease), color var(--transition-smooth, 0.35s ease);
+}
+
+[data-theme="light"] .about-section {
+  background-color: #F8FAFC;
+  color: #0F172A;
+  border-top: 1px solid rgba(226, 232, 240, 0.9);
+  border-bottom: 1px solid rgba(226, 232, 240, 0.9);
+}
+
+/* Subtle, Understated Ambient Lighting */
+.about-ambient-glow {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 600px;
+  height: 400px;
+  background: radial-gradient(ellipse at center, rgba(52, 178, 228, 0.07) 0%, rgba(2, 132, 199, 0.02) 50%, transparent 75%);
+  pointer-events: none;
+  z-index: 0;
+}
+
+[data-theme="light"] .about-ambient-glow {
+  background: radial-gradient(ellipse at center, rgba(2, 132, 199, 0.04) 0%, transparent 70%);
+}
+
+.about-container {
+  position: relative;
+  z-index: 2;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 2rem;
+}
+
+/* ==========================================================================
+   1. EDITORIAL HEADER & MANIFESTO
+   ========================================================================== */
+.about-header {
+  max-width: 820px;
+  margin: 0 auto 3.25rem;
+  text-align: center;
+}
+
+.about-kicker {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.65rem;
+  font-family: var(--font-mono, 'JetBrains Mono', monospace);
+  font-size: 0.78rem;
+  font-weight: 700;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--brand-primary, #34B2E4);
+  background: rgba(52, 178, 228, 0.12);
+  border: 1px solid rgba(52, 178, 228, 0.32);
+  padding: 0.42rem 1.2rem;
+  border-radius: 9999px;
+  margin-bottom: 1.35rem;
+  box-shadow: 0 2px 16px rgba(52, 178, 228, 0.16);
+}
+
+[data-theme="light"] .about-kicker {
+  background: rgba(2, 132, 199, 0.08);
+  border-color: rgba(2, 132, 199, 0.28);
+  color: #0284C7;
+  box-shadow: 0 2px 12px rgba(2, 132, 199, 0.1);
+}
+
+.kicker-dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background-color: currentColor;
+  box-shadow: 0 0 8px currentColor;
+  animation: kicker-pulse 2.4s ease-in-out infinite;
+}
+
+@keyframes kicker-pulse {
+  0%, 100% { opacity: 1; transform: scale(1); }
+  50% { opacity: 0.4; transform: scale(0.85); }
+}
+
+.about-title {
+  font-family: var(--font-heading, 'Plus Jakarta Sans', sans-serif);
+  font-size: clamp(2.1rem, 3.4vw, 2.9rem);
+  font-weight: 800;
+  line-height: 1.2;
+  letter-spacing: -0.035em;
+  color: #FFFFFF;
+  margin: 0 0 1.15rem;
+  text-wrap: balance;
+}
+
+[data-theme="light"] .about-title {
+  color: #0F172A;
+}
+
+.gradient-accent {
+  background: linear-gradient(135deg, #38BDF8 0%, #34B2E4 60%, #60A5FA 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  display: inline;
+}
+
+[data-theme="light"] .gradient-accent {
+  background: linear-gradient(135deg, #0284C7 0%, #0369A1 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.about-subtitle {
+  font-family: var(--font-sans, 'Plus Jakarta Sans', sans-serif);
+  font-size: clamp(1rem, 1.2vw, 1.12rem);
+  line-height: 1.7;
+  color: #94A3B8;
+  font-weight: 400;
+  max-width: 700px;
+  margin: 0 auto;
+  text-wrap: pretty;
+}
+
+[data-theme="light"] .about-subtitle {
+  color: #475569;
+}
+
+/* ==========================================================================
+   2. THREE SLEEK PILLARS (Clean, Minimal, Horizontally Balanced)
+   ========================================================================== */
+.about-pillars-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.5rem;
+  margin-bottom: 2.5rem;
+}
+
+.about-pillar-card {
+  position: relative;
+  background: linear-gradient(160deg, rgba(17, 24, 39, 0.6) 0%, rgba(15, 23, 42, 0.4) 100%);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 16px;
+  padding: 2.1rem 1.85rem;
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  transition: transform 0.28s cubic-bezier(0.16, 1, 0.3, 1), 
+              border-color 0.28s ease, 
+              box-shadow 0.28s ease;
+  overflow: hidden;
+}
+
+.about-pillar-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 2px;
+  background: linear-gradient(90deg, transparent 0%, rgba(52, 178, 228, 0.4) 50%, transparent 100%);
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.about-pillar-card:hover {
+  transform: translateY(-3px);
+  border-color: rgba(52, 178, 228, 0.32);
+  box-shadow: 0 12px 28px rgba(0, 0, 0, 0.3), 0 0 20px rgba(52, 178, 228, 0.08);
+}
+
+.about-pillar-card:hover::before {
+  opacity: 1;
+}
+
+[data-theme="light"] .about-pillar-card {
+  background: #FFFFFF;
+  border-color: rgba(226, 232, 240, 0.95);
+  box-shadow: 0 2px 14px rgba(15, 23, 42, 0.04);
+}
+
+[data-theme="light"] .about-pillar-card:hover {
+  border-color: rgba(2, 132, 199, 0.35);
+  box-shadow: 0 12px 28px rgba(15, 23, 42, 0.08), 0 0 18px rgba(2, 132, 199, 0.08);
+}
+
+.pillar-top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 1.35rem;
+}
+
+.pillar-icon-box {
+  width: 42px;
+  height: 42px;
+  border-radius: 10px;
+  background: rgba(52, 178, 228, 0.09);
+  border: 1px solid rgba(52, 178, 228, 0.2);
+  color: var(--brand-primary, #34B2E4);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: transform 0.25s ease, background 0.25s ease;
+}
+
+.about-pillar-card:hover .pillar-icon-box {
+  transform: scale(1.05);
+  background: rgba(52, 178, 228, 0.15);
+}
+
+[data-theme="light"] .pillar-icon-box {
+  background: rgba(2, 132, 199, 0.07);
+  border-color: rgba(2, 132, 199, 0.2);
+  color: #0284C7;
+}
+
+[data-theme="light"] .about-pillar-card:hover .pillar-icon-box {
+  background: rgba(2, 132, 199, 0.12);
+}
+
+.pillar-num {
+  font-family: var(--font-mono, 'JetBrains Mono', monospace);
+  font-size: 0.78rem;
+  font-weight: 700;
+  color: #64748B;
+  letter-spacing: 0.06em;
+}
+
+[data-theme="light"] .pillar-num {
+  color: #94A3B8;
+}
+
+.pillar-title {
+  font-family: var(--font-heading, 'Plus Jakarta Sans', sans-serif);
+  font-size: 1.18rem;
+  font-weight: 700;
+  color: #FFFFFF;
+  letter-spacing: -0.015em;
+  margin: 0 0 0.65rem;
+}
+
+[data-theme="light"] .pillar-title {
+  color: #0F172A;
+}
+
+.pillar-desc {
+  font-family: var(--font-sans, 'Plus Jakarta Sans', sans-serif);
+  font-size: 0.92rem;
+  line-height: 1.62;
+  color: #94A3B8;
+  margin: 0;
+  text-wrap: pretty;
+}
+
+[data-theme="light"] .pillar-desc {
+  color: #475569;
+}
+
+/* ==========================================================================
+   3. UNDERSTATED IMPACT RIBBON (Bottom Bar)
+   ========================================================================== */
+.about-bottom-bar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 1.5rem;
+  padding: 1.25rem 2rem;
+  background: rgba(17, 24, 39, 0.4);
+  border: 1px solid rgba(255, 255, 255, 0.07);
+  border-radius: 14px;
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+}
+
+[data-theme="light"] .about-bottom-bar {
+  background: #FFFFFF;
+  border-color: rgba(226, 232, 240, 0.95);
+  box-shadow: 0 2px 10px rgba(15, 23, 42, 0.03);
+}
+
+.about-metrics-row {
+  display: flex;
+  align-items: center;
+  gap: 1.75rem;
+}
+
+.about-metric-item {
+  display: flex;
+  align-items: baseline;
+  gap: 0.5rem;
+}
+
+.metric-number {
+  font-family: var(--font-mono, 'JetBrains Mono', monospace);
+  font-size: 1.15rem;
+  font-weight: 800;
+  color: var(--brand-primary, #34B2E4);
+}
+
+[data-theme="light"] .metric-number {
+  color: #0284C7;
+}
+
+.metric-text {
+  font-family: var(--font-sans, 'Plus Jakarta Sans', sans-serif);
+  font-size: 0.82rem;
+  font-weight: 500;
+  color: #94A3B8;
+}
+
+[data-theme="light"] .metric-text {
+  color: #64748B;
+}
+
+.metric-sep {
+  width: 1px;
+  height: 16px;
+  background: rgba(255, 255, 255, 0.1);
+}
+
+[data-theme="light"] .metric-sep {
+  background: rgba(203, 213, 225, 0.8);
+}
+
+.about-cta-wrap .btn-primary {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.6rem;
+  background: linear-gradient(135deg, #34B2E4 0%, #0284C7 100%);
+  color: #FFFFFF;
+  font-family: var(--font-sans, 'Plus Jakarta Sans', sans-serif);
+  font-weight: 600;
+  font-size: 0.88rem;
+  padding: 0.68rem 1.4rem;
+  border-radius: 8px;
+  text-decoration: none;
+  box-shadow: 0 4px 18px rgba(52, 178, 228, 0.25);
+  transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+  border: 1px solid rgba(255, 255, 255, 0.18);
+}
+
+.about-cta-wrap .btn-primary:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 22px rgba(52, 178, 228, 0.38);
+  color: #FFFFFF;
+}
+
+/* ==========================================================================
+   4. VIEWPORT REVEAL MOTION
+   ========================================================================== */
+.about-section [data-reveal] {
+  opacity: 1;
+  transform: translateY(0);
+  transition: opacity 0.5s cubic-bezier(0.16, 1, 0.3, 1), transform 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .about-section [data-reveal] {
+    opacity: 1 !important;
+    transform: none !important;
+    transition: none !important;
+  }
+}
+
+/* ==========================================================================
+   5. RESPONSIVE DESIGN (TABLET & MOBILE)
+   ========================================================================== */
+@media (max-width: 992px) {
+  .about-section {
+    padding: 4.5rem 0 4rem;
+  }
+
+  .about-pillars-grid {
+    grid-template-columns: 1fr;
+    gap: 1.15rem;
+  }
+
+  .about-bottom-bar {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 1.25rem;
+    padding: 1.25rem 1.5rem;
+  }
+
+  .about-metrics-row {
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 1rem;
+  }
+
+  .about-cta-wrap {
+    text-align: center;
+  }
+
+  .about-cta-wrap .btn-primary {
+    width: 100%;
+    justify-content: center;
+  }
+}
+
+@media (max-width: 640px) {
+  .about-section {
+    padding: 3.75rem 0 3.25rem;
+  }
+
+  .about-header {
+    margin-bottom: 2.25rem;
+  }
+
+  .about-pillar-card {
+    padding: 1.6rem 1.35rem;
+  }
+
+  .about-metrics-row {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.65rem;
+  }
+
+  .metric-sep {
+    display: none;
+  }
+}

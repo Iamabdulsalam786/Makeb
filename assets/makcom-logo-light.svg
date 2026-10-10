@@ -1,0 +1,30 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 70" width="320" height="70">
+  <defs>
+    <linearGradient id="makcomGradLight" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#E11D48" />
+      <stop offset="60%" stop-color="#BE123C" />
+      <stop offset="100%" stop-color="#0284C7" />
+    </linearGradient>
+    <linearGradient id="makcomAccentLight" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#0284C7" />
+      <stop offset="100%" stop-color="#38BDF8" />
+    </linearGradient>
+  </defs>
+
+  <!-- Geometric Modern Emblem -->
+  <g transform="translate(10, 8)">
+    <path d="M6 46 L6 14 L24 34 L42 14 L42 46 L34 46 L34 26 L24 37 L14 26 L14 46 Z" fill="url(#makcomGradLight)" />
+    <path d="M44 26 L52 18 L52 34 Z" fill="url(#makcomAccentLight)" />
+    <circle cx="24" cy="46" r="3" fill="#E11D48" />
+  </g>
+
+  <!-- Typography -->
+  <g transform="translate(74, 16)">
+    <text x="0" y="27" font-family="'Outfit', 'Plus Jakarta Sans', sans-serif" font-weight="900" font-size="28" letter-spacing="0.04em" fill="#0F172A">
+      MAK<tspan fill="#E11D48">COM</tspan>
+    </text>
+    <text x="1" y="42" font-family="'Plus Jakarta Sans', sans-serif" font-weight="700" font-size="7.5" letter-spacing="0.22em" fill="#475569">
+      CONSULTING • TECHNOLOGY • SOLUTIONS
+    </text>
+  </g>
+</svg>

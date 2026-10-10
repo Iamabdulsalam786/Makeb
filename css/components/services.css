@@ -1,0 +1,427 @@
+/* ==========================================================================
+   COMPONENT: OUR SERVICES & SOLUTIONS (.services-section)
+   Inspired by The Nexus Dynamics — Visual Media Cards, Hover Zoom,
+   Circular Arrow Actions, Unified Luxury Grid & Zero Clutter
+   - 8 Core Capabilities:
+     1. Web Development & SaaS
+     2. Native & Cross-Platform App Development
+     3. Enterprise Cybersecurity & Threat Defense
+     4. Custom AI Systems & Agentic Workflows
+     5. Enterprise ERP Implementation & Modernisation
+     6. Managed IT & Multi-Region Cloud Infra
+     7. Business & Engineering Talent Augmentation
+     8. Turnkey BPO & Multilingual Operations Desks
+   - Architectural, Low-Scroll Viewport Optimization
+   - Zero Pricing Tables — 100% High-Value Enterprise Scope
+   - High-Contrast Dark Mode & Corporate Light Mode
+   ========================================================================== */
+
+.services-section {
+  position: relative;
+  padding: 4.5rem 0 4rem;
+  background-color: var(--bg-primary, #0A0E17);
+  color: var(--text-primary, #F8FAFC);
+  border-top: 1px solid rgba(255, 255, 255, 0.07);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.07);
+  overflow: hidden;
+  transition: background-color var(--transition-smooth, 0.35s ease), color var(--transition-smooth, 0.35s ease);
+}
+
+[data-theme="light"] .services-section {
+  background-color: #F8FAFC;
+  color: #0F172A;
+  border-top: 1px solid rgba(226, 232, 240, 0.9);
+  border-bottom: 1px solid rgba(226, 232, 240, 0.9);
+}
+
+.services-container {
+  position: relative;
+  z-index: 2;
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 0 1.75rem;
+}
+
+/* ==========================================================================
+   1. SECTION HEADER (Nexus Dynamics Two-Column Flex Header)
+   ========================================================================== */
+.services-header-wrap {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 2rem;
+  margin-bottom: 2.5rem;
+  flex-wrap: wrap;
+}
+
+.services-heading-block {
+  max-width: 820px;
+}
+
+.services-kicker {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.65rem;
+  font-family: var(--font-mono, 'JetBrains Mono', monospace);
+  font-size: 0.78rem;
+  font-weight: 700;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--brand-primary, #34B2E4);
+  background: rgba(52, 178, 228, 0.12);
+  border: 1px solid rgba(52, 178, 228, 0.32);
+  padding: 0.42rem 1.2rem;
+  border-radius: 9999px;
+  margin-bottom: 0.95rem;
+  box-shadow: 0 2px 16px rgba(52, 178, 228, 0.16);
+}
+
+[data-theme="light"] .services-kicker {
+  background: rgba(2, 132, 199, 0.08);
+  border-color: rgba(2, 132, 199, 0.28);
+  color: #0284C7;
+  box-shadow: 0 2px 12px rgba(2, 132, 199, 0.1);
+}
+
+.services-kicker-dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background-color: currentColor;
+  box-shadow: 0 0 6px currentColor;
+}
+
+.services-title {
+  font-family: var(--font-heading, 'Plus Jakarta Sans', sans-serif);
+  font-size: clamp(1.75rem, 2.7vw, 2.45rem);
+  font-weight: 800;
+  line-height: 1.22;
+  letter-spacing: -0.025em;
+  color: #FFFFFF;
+  margin: 0 0 0.5rem;
+}
+
+[data-theme="light"] .services-title {
+  color: #0F172A;
+}
+
+.services-subtitle {
+  font-family: var(--font-sans, 'Plus Jakarta Sans', sans-serif);
+  font-size: 0.95rem;
+  line-height: 1.55;
+  color: #94A3B8;
+  margin: 0;
+}
+
+[data-theme="light"] .services-subtitle {
+  color: #475569;
+}
+
+.services-header-cta {
+  flex-shrink: 0;
+}
+
+.services-header-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.6rem;
+  background: linear-gradient(135deg, #34B2E4 0%, #0284C7 100%);
+  color: #FFFFFF;
+  font-family: var(--font-sans, 'Plus Jakarta Sans', sans-serif);
+  font-weight: 700;
+  font-size: 0.88rem;
+  padding: 0.7rem 1.45rem;
+  border-radius: 9999px;
+  text-decoration: none;
+  box-shadow: 0 4px 18px rgba(52, 178, 228, 0.28);
+  transition: all 0.22s cubic-bezier(0.16, 1, 0.3, 1);
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  white-space: nowrap;
+}
+
+.services-header-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 24px rgba(52, 178, 228, 0.4);
+  color: #FFFFFF;
+}
+
+/* ==========================================================================
+   2. UNIFIED LUXURY SERVICES GRID (Nexus Dynamics Inspired 4-Col Layout)
+   ========================================================================== */
+.services-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1.6rem 1.35rem;
+  margin-bottom: 2.25rem;
+  list-style: none;
+  padding: 0;
+}
+
+/* Service Card (Elevated Luxury Capsule) */
+.service-card {
+  display: flex;
+  flex-direction: column;
+  text-decoration: none;
+  color: inherit;
+  cursor: pointer;
+  background: rgba(15, 21, 35, 0.55);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 18px;
+  padding: 12px;
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.24);
+  transition: transform 0.28s cubic-bezier(0.16, 1, 0.3, 1),
+              border-color 0.28s cubic-bezier(0.16, 1, 0.3, 1),
+              box-shadow 0.28s cubic-bezier(0.16, 1, 0.3, 1),
+              background 0.28s ease;
+  position: relative;
+  outline: none;
+}
+
+[data-theme="light"] .service-card {
+  background: #FFFFFF;
+  border-color: rgba(226, 232, 240, 0.95);
+  box-shadow: 0 4px 16px rgba(15, 23, 42, 0.04);
+}
+
+.service-card:hover {
+  transform: translateY(-6px);
+  border-color: rgba(52, 178, 228, 0.45);
+  box-shadow: 0 16px 36px rgba(0, 0, 0, 0.42), 0 0 24px rgba(52, 178, 228, 0.16);
+  background: rgba(17, 24, 39, 0.85);
+}
+
+[data-theme="light"] .service-card:hover {
+  border-color: #38BDF8;
+  box-shadow: 0 16px 32px rgba(2, 132, 199, 0.12);
+  background: #FFFFFF;
+}
+
+/* Card Visual Media Thumbnail */
+.service-card-media {
+  position: relative;
+  overflow: hidden;
+  border-radius: 13px;
+  aspect-ratio: 16 / 10;
+  background: var(--bg-secondary, #0F1523);
+  border: 1px solid rgba(255, 255, 255, 0.07);
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.28);
+}
+
+[data-theme="light"] .service-card-media {
+  background: #E2E8F0;
+  border-color: rgba(15, 23, 42, 0.08);
+  box-shadow: 0 4px 12px rgba(15, 23, 42, 0.06);
+}
+
+.service-card-media img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  display: block;
+  transition: transform 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.service-card:hover .service-card-media img {
+  transform: scale(1.06);
+}
+
+/* Glassmorphism Category Badge on Thumbnail */
+.service-media-badge {
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  font-family: var(--font-mono, 'JetBrains Mono', monospace);
+  font-size: 0.65rem;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: #FFFFFF;
+  background: rgba(10, 14, 23, 0.75);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.16);
+  padding: 0.22rem 0.65rem;
+  border-radius: 9999px;
+  z-index: 2;
+}
+
+/* Subtle Gradient Overlay Sheen at Bottom of Media */
+.service-card-media::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg, transparent 55%, rgba(10, 14, 23, 0.45) 100%);
+  pointer-events: none;
+}
+
+/* Meta Area (Title + Arrow Button) */
+.service-card-meta {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+  padding: 12px 2px 4px;
+}
+
+.service-meta-text {
+  flex: 1;
+  min-width: 0;
+}
+
+.service-card-meta h3 {
+  margin: 0 0 3px;
+  color: var(--text-primary, #F8FAFC);
+  font-family: var(--font-heading, 'Plus Jakarta Sans', sans-serif);
+  font-size: clamp(0.96rem, 1.15vw, 1.08rem);
+  font-weight: 700;
+  line-height: 1.35;
+  letter-spacing: 0.01em;
+  text-transform: uppercase;
+  transition: color 0.2s ease;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+[data-theme="light"] .service-card-meta h3 {
+  color: #0F172A;
+}
+
+.service-card:hover .service-card-meta h3 {
+  color: var(--brand-primary, #34B2E4);
+}
+
+.service-card-sub {
+  margin: 0;
+  font-family: var(--font-sans, 'Plus Jakarta Sans', sans-serif);
+  font-size: 0.78rem;
+  color: var(--text-secondary, #94A3B8);
+  line-height: 1.4;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+[data-theme="light"] .service-card-sub {
+  color: #64748B;
+}
+
+/* Capability Chips inside the card */
+.service-card-tags {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 0.35rem;
+  padding: 8px 2px 2px;
+  border-top: 1px solid rgba(255, 255, 255, 0.06);
+  margin-top: 8px;
+}
+
+[data-theme="light"] .service-card-tags {
+  border-top-color: rgba(226, 232, 240, 0.9);
+}
+
+.service-chip-tag {
+  font-family: var(--font-mono, 'JetBrains Mono', monospace);
+  font-size: 0.65rem;
+  font-weight: 600;
+  color: #94A3B8;
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid rgba(255, 255, 255, 0.07);
+  padding: 0.16rem 0.5rem;
+  border-radius: 9999px;
+  white-space: nowrap;
+  transition: all 0.2s ease;
+}
+
+[data-theme="light"] .service-chip-tag {
+  color: #64748B;
+  background: #F1F5F9;
+  border-color: #E2E8F0;
+}
+
+.service-card:hover .service-chip-tag {
+  border-color: rgba(52, 178, 228, 0.25);
+  color: #E2E8F0;
+}
+
+[data-theme="light"] .service-card:hover .service-chip-tag {
+  color: #0F172A;
+  border-color: #CBD5E1;
+}
+
+/* Nexus Dynamics Circular Arrow Button */
+.service-card-arrow {
+  display: grid;
+  place-items: center;
+  width: 38px;
+  height: 38px;
+  flex-shrink: 0;
+  border: 1.5px solid rgba(255, 255, 255, 0.18);
+  border-radius: 50%;
+  color: var(--text-primary, #F8FAFC);
+  transition: background 0.25s cubic-bezier(0.16, 1, 0.3, 1), 
+              border-color 0.25s cubic-bezier(0.16, 1, 0.3, 1), 
+              color 0.25s cubic-bezier(0.16, 1, 0.3, 1), 
+              transform 0.25s cubic-bezier(0.16, 1, 0.3, 1),
+              box-shadow 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+[data-theme="light"] .service-card-arrow {
+  border-color: rgba(15, 23, 42, 0.2);
+  color: #0F172A;
+}
+
+.service-card-arrow svg {
+  transition: transform 0.25s ease;
+}
+
+.service-card:hover .service-card-arrow {
+  background: var(--brand-primary, #34B2E4);
+  color: #FFFFFF;
+  border-color: var(--brand-primary, #34B2E4);
+  transform: scale(1.05);
+  box-shadow: 0 0 16px var(--brand-primary-glow, rgba(52, 178, 228, 0.35));
+}
+
+.service-card:hover .service-card-arrow svg {
+  transform: translate(2px, -2px);
+}
+
+/* ==========================================================================
+   3. RESPONSIVE MEDIA QUERIES
+   ========================================================================== */
+@media (max-width: 1200px) {
+  .services-grid {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 1.35rem;
+  }
+}
+
+@media (max-width: 900px) {
+  .services-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 1.25rem;
+  }
+  .services-header-wrap {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 1.25rem;
+  }
+}
+
+@media (max-width: 580px) {
+  .services-grid {
+    grid-template-columns: 1fr;
+    gap: 1.25rem;
+  }
+  .services-section {
+    padding: 3.5rem 0 3rem;
+  }
+}

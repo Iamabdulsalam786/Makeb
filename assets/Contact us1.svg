@@ -1,0 +1,14 @@
+<svg viewBox="0 0 160 160" width="160" height="160" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <path id="circlePath" d="M 80, 80 m -60, 0 a 60,60 0 1,1 120,0 a 60,60 0 1,1 -120,0" />
+  </defs>
+  <!-- Outer subtle ring -->
+  <circle cx="80" cy="80" r="76" fill="none" stroke="rgba(52, 178, 228, 0.35)" stroke-width="1.2" stroke-dasharray="4 4" />
+  <circle cx="80" cy="80" r="46" fill="none" stroke="rgba(52, 178, 228, 0.18)" stroke-width="1" />
+  <!-- Circular text -->
+  <text font-family="'Plus Jakarta Sans', system-ui, sans-serif" font-size="10.5" font-weight="700" letter-spacing="2.4" fill="#34B2E4">
+    <textPath href="#circlePath" startOffset="0%">
+      • CONNECTING BUSINESSES • MAKCOMMS • DISCOVERY SESSION •
+    </textPath>
+  </text>
+</svg>
