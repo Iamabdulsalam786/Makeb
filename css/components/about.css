@@ -100,12 +100,12 @@
 
 .about-title {
   font-family: var(--font-heading, 'Plus Jakarta Sans', sans-serif);
-  font-size: clamp(2.1rem, 3.4vw, 2.9rem);
+  font-size: clamp(1.55rem, 2.2vw, 2.05rem);
   font-weight: 800;
-  line-height: 1.2;
-  letter-spacing: -0.035em;
+  line-height: 1.25;
+  letter-spacing: -0.025em;
   color: #FFFFFF;
-  margin: 0 0 1.15rem;
+  margin: 0 0 0.85rem;
   text-wrap: balance;
 }
 
@@ -128,11 +128,11 @@
 
 .about-subtitle {
   font-family: var(--font-sans, 'Plus Jakarta Sans', sans-serif);
-  font-size: clamp(1rem, 1.2vw, 1.12rem);
-  line-height: 1.7;
+  font-size: 0.92rem;
+  line-height: 1.6;
   color: #94A3B8;
   font-weight: 400;
-  max-width: 700px;
+  max-width: 660px;
   margin: 0 auto;
   text-wrap: pretty;
 }
@@ -156,7 +156,7 @@
   background: linear-gradient(160deg, rgba(17, 24, 39, 0.6) 0%, rgba(15, 23, 42, 0.4) 100%);
   border: 1px solid rgba(255, 255, 255, 0.08);
   border-radius: 16px;
-  padding: 2.1rem 1.85rem;
+  padding: 1.65rem 1.45rem;
   backdrop-filter: blur(14px);
   -webkit-backdrop-filter: blur(14px);
   transition: transform 0.28s cubic-bezier(0.16, 1, 0.3, 1), 
@@ -247,11 +247,11 @@
 
 .pillar-title {
   font-family: var(--font-heading, 'Plus Jakarta Sans', sans-serif);
-  font-size: 1.18rem;
+  font-size: 1.05rem;
   font-weight: 700;
   color: #FFFFFF;
   letter-spacing: -0.015em;
-  margin: 0 0 0.65rem;
+  margin: 0 0 0.45rem;
 }
 
 [data-theme="light"] .pillar-title {
@@ -260,8 +260,8 @@
 
 .pillar-desc {
   font-family: var(--font-sans, 'Plus Jakarta Sans', sans-serif);
-  font-size: 0.92rem;
-  line-height: 1.62;
+  font-size: 0.84rem;
+  line-height: 1.55;
   color: #94A3B8;
   margin: 0;
   text-wrap: pretty;
@@ -416,24 +416,140 @@
 
 @media (max-width: 640px) {
   .about-section {
-    padding: 3.75rem 0 3.25rem;
+    padding: 3rem 0 2.5rem;
+  }
+
+  .about-container {
+    padding: 0 1.25rem;
   }
 
   .about-header {
-    margin-bottom: 2.25rem;
+    margin-bottom: 1.85rem;
+  }
+
+  .about-kicker {
+    font-size: 0.68rem;
+    padding: 0.28rem 0.85rem;
+    margin-bottom: 0.85rem;
+    gap: 0.5rem;
+  }
+
+  .about-title {
+    font-size: 1.35rem !important;
+    line-height: 1.28 !important;
+    letter-spacing: -0.02em !important;
+    margin-bottom: 0.65rem !important;
+  }
+
+  .about-subtitle {
+    font-size: 0.84rem !important;
+    line-height: 1.5 !important;
+    max-width: 100% !important;
+  }
+
+  .about-pillars-grid {
+    gap: 0.9rem;
+    margin-bottom: 1.65rem;
   }
 
   .about-pillar-card {
-    padding: 1.6rem 1.35rem;
+    padding: 1.25rem 1.15rem;
+    border-radius: 13px;
+  }
+
+  .pillar-top {
+    margin-bottom: 0.85rem;
+  }
+
+  .pillar-icon-box {
+    width: 36px;
+    height: 36px;
+    border-radius: 8px;
+  }
+
+  .pillar-icon-box svg {
+    width: 17px;
+    height: 17px;
+  }
+
+  .pillar-num {
+    font-size: 0.72rem;
+  }
+
+  .pillar-title {
+    font-size: 0.98rem;
+    margin: 0 0 0.35rem;
+  }
+
+  .pillar-desc {
+    font-size: 0.8rem;
+    line-height: 1.48;
+  }
+
+  .about-bottom-bar {
+    padding: 1.1rem 1.15rem;
+    border-radius: 12px;
+    gap: 1rem;
   }
 
   .about-metrics-row {
-    flex-direction: column;
-    align-items: flex-start;
-    gap: 0.65rem;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+    gap: 0.65rem 1.25rem;
+  }
+
+  .about-metric-item {
+    gap: 0.4rem;
+  }
+
+  .metric-number {
+    font-size: 0.98rem;
+  }
+
+  .metric-text {
+    font-size: 0.74rem;
   }
 
   .metric-sep {
     display: none;
+  }
+
+  .about-cta-wrap .btn-primary {
+    font-size: 0.82rem;
+    padding: 0.6rem 1.15rem;
+  }
+}
+
+@media (max-width: 420px) {
+  .about-section {
+    padding: 2.75rem 0 2.25rem;
+  }
+
+  .about-container {
+    padding: 0 1rem;
+  }
+
+  .about-title {
+    font-size: 1.22rem !important;
+    line-height: 1.28 !important;
+  }
+
+  .about-subtitle {
+    font-size: 0.8rem !important;
+    line-height: 1.48 !important;
+  }
+
+  .pillar-title {
+    font-size: 0.94rem;
+  }
+
+  .pillar-desc {
+    font-size: 0.77rem;
+    line-height: 1.45;
+  }
+
+  .about-pillar-card {
+    padding: 1.1rem 1rem;
   }
 }

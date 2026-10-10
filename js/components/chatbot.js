@@ -82,7 +82,7 @@ export function initMakBotWidget() {
     },
     {
       keywords: ['cost', 'price', 'pricing', 'rate', 'how much', 'budget', 'quote', 'fee', 'charge'],
-      response: "Our pricing is transparent and tailored to your scope: we offer fixed-sprint MVP audits, phased project milestone delivery, and monthly dedicated team retainers. Leave your number and email in the callback card above for a complimentary architectural estimate!"
+      response: "Our pricing is transparent and tailored to your scope: we offer fixed-sprint MVP audits, phased project milestone delivery, and monthly dedicated team retainers. Type your work email or phone number right here, and our practice director will share a complimentary estimate!"
     },
     {
       keywords: ['timeline', 'duration', 'how long', 'weeks', 'delivery', 'time', 'speed'],
@@ -98,7 +98,7 @@ export function initMakBotWidget() {
     },
     {
       keywords: ['call', 'callback', 'phone', 'contact', 'speak', 'human', 'talk', 'whatsapp', 'reach'],
-      response: "We'd love to connect with you directly! Please enter your phone/WhatsApp number and work email in the quick form above, or type it right here, and our practice director will get in touch with you within 24 hours."
+      response: "We'd love to connect directly! Please type your phone / WhatsApp number or email right here, and our senior director will get in touch with you within 24 business hours."
     },
     {
       keywords: ['hi', 'hello', 'hey', 'salam', 'good morning', 'good afternoon', 'good evening'],
@@ -132,7 +132,7 @@ export function initMakBotWidget() {
     }
 
     // Fallback answer
-    return `Thank you for asking! MAKCOMMs specializes in custom enterprise software, ERP modernization (Epicor & SAP), dedicated tech talent, and 24/7 global operations. Would you like to schedule a quick callback with one of our practice leads? You can leave your phone number and email in the card above.`;
+    return `Thank you for asking! MAKCOMMs specializes in custom enterprise software, ERP modernization (Epicor & SAP), dedicated tech talent, and 24/7 global operations. Would you like to schedule a quick consultation? Type your email or phone number right here, and our practice lead will reach out to you directly!`;
   }
 
   function appendBotMessage(text) {

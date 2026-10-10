@@ -146,67 +146,237 @@
 }
 
 /* ==========================================================================
-   2. UNIFIED LUXURY SERVICES GRID (Nexus Dynamics Inspired 4-Col Layout)
+   2. UNIFIED LUXURY SERVICES GRID (3-Column Desktop, 1-Column Centered Phone)
    ========================================================================== */
 .services-grid {
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  gap: 1.6rem 1.35rem;
-  margin-bottom: 2.25rem;
+  display: grid !important;
+  grid-template-columns: repeat(3, minmax(0, 1fr)) !important;
+  gap: 1.85rem 1.6rem;
+  margin-bottom: 2.75rem;
   list-style: none;
   padding: 0;
 }
 
-/* Service Card (Elevated Luxury Capsule) */
+/* Service Card (Elevated Luxury Enterprise Capability Capsule) */
 .service-card {
   display: flex;
   flex-direction: column;
   text-decoration: none;
   color: inherit;
   cursor: pointer;
-  background: rgba(15, 21, 35, 0.55);
-  border: 1px solid rgba(255, 255, 255, 0.08);
-  border-radius: 18px;
-  padding: 12px;
-  backdrop-filter: blur(12px);
-  -webkit-backdrop-filter: blur(12px);
-  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.24);
+  background: rgba(13, 19, 33, 0.72);
+  border: 1px solid rgba(255, 255, 255, 0.09);
+  border-radius: 20px;
+  padding: 1.45rem 1.35rem 1.3rem;
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.35);
+  position: relative;
+  overflow: hidden;
   transition: transform 0.28s cubic-bezier(0.16, 1, 0.3, 1),
               border-color 0.28s cubic-bezier(0.16, 1, 0.3, 1),
               box-shadow 0.28s cubic-bezier(0.16, 1, 0.3, 1),
               background 0.28s ease;
-  position: relative;
   outline: none;
+}
+
+/* Top Neon Luminous Accent Line */
+.service-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 15%;
+  right: 15%;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, rgba(52, 178, 228, 0.7), transparent);
+  opacity: 0.7;
+  transition: all 0.35s ease;
+}
+
+.service-card:hover::before {
+  left: 0;
+  right: 0;
+  opacity: 1;
+  background: linear-gradient(90deg, transparent, rgba(52, 178, 228, 0.95), transparent);
 }
 
 [data-theme="light"] .service-card {
   background: #FFFFFF;
   border-color: rgba(226, 232, 240, 0.95);
-  box-shadow: 0 4px 16px rgba(15, 23, 42, 0.04);
+  box-shadow: 0 4px 20px rgba(15, 23, 42, 0.05);
+}
+
+[data-theme="light"] .service-card::before {
+  background: linear-gradient(90deg, transparent, rgba(2, 132, 199, 0.5), transparent);
 }
 
 .service-card:hover {
   transform: translateY(-6px);
   border-color: rgba(52, 178, 228, 0.45);
-  box-shadow: 0 16px 36px rgba(0, 0, 0, 0.42), 0 0 24px rgba(52, 178, 228, 0.16);
-  background: rgba(17, 24, 39, 0.85);
+  box-shadow: 0 20px 48px rgba(0, 0, 0, 0.5), 0 0 28px rgba(52, 178, 228, 0.16);
+  background: rgba(16, 24, 40, 0.9);
 }
 
 [data-theme="light"] .service-card:hover {
   border-color: #38BDF8;
-  box-shadow: 0 16px 32px rgba(2, 132, 199, 0.12);
+  box-shadow: 0 16px 36px rgba(2, 132, 199, 0.14);
   background: #FFFFFF;
 }
 
-/* Card Visual Media Thumbnail */
+/* 1. Header Bar: Icon + Index Kicker + Arrow */
+.service-card-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.75rem;
+  margin-bottom: 1.15rem;
+}
+
+.service-icon-box {
+  width: 44px;
+  height: 44px;
+  border-radius: 12px;
+  background: rgba(52, 178, 228, 0.1);
+  border: 1px solid rgba(52, 178, 228, 0.28);
+  color: var(--brand-primary, #34B2E4);
+  display: grid;
+  place-items: center;
+  flex-shrink: 0;
+  transition: all 0.25s ease;
+  box-shadow: 0 0 16px rgba(52, 178, 228, 0.12);
+}
+
+[data-theme="light"] .service-icon-box {
+  background: rgba(2, 132, 199, 0.08);
+  border-color: rgba(2, 132, 199, 0.24);
+  color: #0284C7;
+  box-shadow: 0 0 12px rgba(2, 132, 199, 0.08);
+}
+
+.service-card:hover .service-icon-box {
+  background: rgba(52, 178, 228, 0.2);
+  border-color: var(--brand-primary, #34B2E4);
+  transform: scale(1.05);
+  box-shadow: 0 0 22px rgba(52, 178, 228, 0.35);
+}
+
+.service-index-kicker {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.38rem;
+  font-family: var(--font-mono, 'JetBrains Mono', monospace);
+  font-size: 0.7rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: #94A3B8;
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  padding: 0.28rem 0.72rem;
+  border-radius: 9999px;
+}
+
+[data-theme="light"] .service-index-kicker {
+  background: #F1F5F9;
+  border-color: #E2E8F0;
+  color: #64748B;
+}
+
+.service-idx-num {
+  color: var(--brand-primary, #34B2E4);
+  font-weight: 800;
+}
+
+.service-idx-div {
+  opacity: 0.45;
+}
+
+.service-idx-name {
+  font-weight: 700;
+}
+
+/* Action Arrow Button */
+.service-card-arrow {
+  width: 38px;
+  height: 38px;
+  border-radius: 50%;
+  display: grid;
+  place-items: center;
+  background: rgba(255, 255, 255, 0.04);
+  border: 1.5px solid rgba(255, 255, 255, 0.14);
+  color: var(--text-primary, #F8FAFC);
+  transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+  flex-shrink: 0;
+}
+
+[data-theme="light"] .service-card-arrow {
+  background: #F8FAFC;
+  border-color: #CBD5E1;
+  color: #0F172A;
+}
+
+.service-card-arrow svg {
+  transition: transform 0.25s ease;
+}
+
+.service-card:hover .service-card-arrow {
+  background: var(--brand-primary, #34B2E4);
+  border-color: var(--brand-primary, #34B2E4);
+  color: #FFFFFF;
+  transform: scale(1.05);
+  box-shadow: 0 0 18px rgba(52, 178, 228, 0.4);
+}
+
+.service-card:hover .service-card-arrow svg {
+  transform: translate(2px, -2px);
+}
+
+/* 2. Title & Executive Scope */
+.service-card-meta {
+  margin-bottom: 1.05rem;
+}
+
+.service-card-title {
+  margin: 0 0 0.42rem;
+  color: var(--text-primary, #F8FAFC);
+  font-family: var(--font-heading, 'Plus Jakarta Sans', sans-serif);
+  font-size: 1.18rem;
+  font-weight: 700;
+  line-height: 1.35;
+  letter-spacing: -0.015em;
+  transition: color 0.2s ease;
+}
+
+[data-theme="light"] .service-card-title {
+  color: #0F172A;
+}
+
+.service-card:hover .service-card-title {
+  color: var(--brand-primary, #34B2E4);
+}
+
+.service-card-sub {
+  margin: 0;
+  font-family: var(--font-sans, 'Plus Jakarta Sans', sans-serif);
+  font-size: 0.82rem;
+  color: var(--text-secondary, #94A3B8);
+  line-height: 1.48;
+}
+
+[data-theme="light"] .service-card-sub {
+  color: #64748B;
+}
+
+/* 3. System Viewport Interface / Media Frame */
 .service-card-media {
   position: relative;
   overflow: hidden;
   border-radius: 13px;
-  aspect-ratio: 16 / 10;
-  background: var(--bg-secondary, #0F1523);
-  border: 1px solid rgba(255, 255, 255, 0.07);
-  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.28);
+  height: 160px;
+  margin-bottom: 1rem;
+  background: #0A0E17;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.32);
 }
 
 [data-theme="light"] .service-card-media {
@@ -221,122 +391,68 @@
   object-fit: cover;
   object-position: center;
   display: block;
-  transition: transform 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+  transition: transform 0.5s cubic-bezier(0.16, 1, 0.3, 1), filter 0.3s ease;
 }
 
 .service-card:hover .service-card-media img {
-  transform: scale(1.06);
+  transform: scale(1.05);
 }
 
-/* Glassmorphism Category Badge on Thumbnail */
+.service-media-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg, rgba(10, 14, 23, 0.08) 0%, rgba(10, 14, 23, 0.72) 100%);
+  pointer-events: none;
+}
+
 .service-media-badge {
   position: absolute;
-  top: 10px;
+  bottom: 10px;
   left: 10px;
   display: inline-flex;
   align-items: center;
-  gap: 0.4rem;
+  gap: 0.45rem;
   font-family: var(--font-mono, 'JetBrains Mono', monospace);
   font-size: 0.65rem;
   font-weight: 700;
   letter-spacing: 0.06em;
   text-transform: uppercase;
   color: #FFFFFF;
-  background: rgba(10, 14, 23, 0.75);
+  background: rgba(10, 14, 23, 0.85);
   backdrop-filter: blur(10px);
   -webkit-backdrop-filter: blur(10px);
-  border: 1px solid rgba(255, 255, 255, 0.16);
-  padding: 0.22rem 0.65rem;
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  padding: 0.25rem 0.65rem;
   border-radius: 9999px;
   z-index: 2;
 }
 
-/* Subtle Gradient Overlay Sheen at Bottom of Media */
-.service-card-media::after {
-  content: '';
-  position: absolute;
-  inset: 0;
-  background: linear-gradient(180deg, transparent 55%, rgba(10, 14, 23, 0.45) 100%);
-  pointer-events: none;
+.badge-dot {
+  width: 5px;
+  height: 5px;
+  border-radius: 50%;
+  background: #34B2E4;
+  box-shadow: 0 0 6px #34B2E4;
 }
 
-/* Meta Area (Title + Arrow Button) */
-.service-card-meta {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 10px;
-  padding: 12px 2px 4px;
-}
-
-.service-meta-text {
-  flex: 1;
-  min-width: 0;
-}
-
-.service-card-meta h3 {
-  margin: 0 0 3px;
-  color: var(--text-primary, #F8FAFC);
-  font-family: var(--font-heading, 'Plus Jakarta Sans', sans-serif);
-  font-size: clamp(0.96rem, 1.15vw, 1.08rem);
-  font-weight: 700;
-  line-height: 1.35;
-  letter-spacing: 0.01em;
-  text-transform: uppercase;
-  transition: color 0.2s ease;
-  white-space: nowrap;
-  overflow: hidden;
-  text-overflow: ellipsis;
-}
-
-[data-theme="light"] .service-card-meta h3 {
-  color: #0F172A;
-}
-
-.service-card:hover .service-card-meta h3 {
-  color: var(--brand-primary, #34B2E4);
-}
-
-.service-card-sub {
-  margin: 0;
-  font-family: var(--font-sans, 'Plus Jakarta Sans', sans-serif);
-  font-size: 0.78rem;
-  color: var(--text-secondary, #94A3B8);
-  line-height: 1.4;
-  white-space: nowrap;
-  overflow: hidden;
-  text-overflow: ellipsis;
-}
-
-[data-theme="light"] .service-card-sub {
-  color: #64748B;
-}
-
-/* Capability Chips inside the card */
+/* 4. Capability Deliverable Tags */
 .service-card-tags {
   display: flex;
   align-items: center;
   flex-wrap: wrap;
-  gap: 0.35rem;
-  padding: 8px 2px 2px;
-  border-top: 1px solid rgba(255, 255, 255, 0.06);
-  margin-top: 8px;
-}
-
-[data-theme="light"] .service-card-tags {
-  border-top-color: rgba(226, 232, 240, 0.9);
+  gap: 0.38rem;
+  margin-bottom: 1rem;
 }
 
 .service-chip-tag {
   font-family: var(--font-mono, 'JetBrains Mono', monospace);
-  font-size: 0.65rem;
+  font-size: 0.68rem;
   font-weight: 600;
   color: #94A3B8;
   background: rgba(255, 255, 255, 0.04);
-  border: 1px solid rgba(255, 255, 255, 0.07);
-  padding: 0.16rem 0.5rem;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  padding: 0.22rem 0.58rem;
   border-radius: 9999px;
-  white-space: nowrap;
   transition: all 0.2s ease;
 }
 
@@ -347,7 +463,7 @@
 }
 
 .service-card:hover .service-chip-tag {
-  border-color: rgba(52, 178, 228, 0.25);
+  border-color: rgba(52, 178, 228, 0.3);
   color: #E2E8F0;
 }
 
@@ -356,72 +472,236 @@
   border-color: #CBD5E1;
 }
 
-/* Nexus Dynamics Circular Arrow Button */
-.service-card-arrow {
-  display: grid;
-  place-items: center;
-  width: 38px;
-  height: 38px;
-  flex-shrink: 0;
-  border: 1.5px solid rgba(255, 255, 255, 0.18);
-  border-radius: 50%;
-  color: var(--text-primary, #F8FAFC);
-  transition: background 0.25s cubic-bezier(0.16, 1, 0.3, 1), 
-              border-color 0.25s cubic-bezier(0.16, 1, 0.3, 1), 
-              color 0.25s cubic-bezier(0.16, 1, 0.3, 1), 
-              transform 0.25s cubic-bezier(0.16, 1, 0.3, 1),
-              box-shadow 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+/* 5. Footer CTA Bar */
+.service-card-footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding-top: 0.85rem;
+  border-top: 1px solid rgba(255, 255, 255, 0.07);
+  color: var(--brand-primary, #34B2E4);
+  font-family: var(--font-sans, 'Plus Jakarta Sans', sans-serif);
+  font-size: 0.82rem;
+  font-weight: 700;
+  letter-spacing: 0.01em;
+  transition: all 0.2s ease;
+  margin-top: auto;
 }
 
-[data-theme="light"] .service-card-arrow {
-  border-color: rgba(15, 23, 42, 0.2);
-  color: #0F172A;
+[data-theme="light"] .service-card-footer {
+  border-top-color: rgba(226, 232, 240, 0.9);
+  color: #0284C7;
 }
 
-.service-card-arrow svg {
-  transition: transform 0.25s ease;
-}
-
-.service-card:hover .service-card-arrow {
-  background: var(--brand-primary, #34B2E4);
+.service-card:hover .service-card-footer {
   color: #FFFFFF;
-  border-color: var(--brand-primary, #34B2E4);
-  transform: scale(1.05);
-  box-shadow: 0 0 16px var(--brand-primary-glow, rgba(52, 178, 228, 0.35));
 }
 
-.service-card:hover .service-card-arrow svg {
-  transform: translate(2px, -2px);
+[data-theme="light"] .service-card:hover .service-card-footer {
+  color: #0284C7;
+}
+
+.service-card:hover .service-card-footer svg {
+  transform: translateX(3px);
+}
+
+.service-card-footer svg {
+  transition: transform 0.2s ease;
 }
 
 /* ==========================================================================
-   3. RESPONSIVE MEDIA QUERIES
+   3. RESPONSIVE MEDIA QUERIES (Strictly 3 on Desktop, Strictly 1 in Center on Phone)
    ========================================================================== */
-@media (max-width: 1200px) {
+@media (min-width: 768px) {
   .services-grid {
-    grid-template-columns: repeat(3, minmax(0, 1fr));
-    gap: 1.35rem;
+    display: grid !important;
+    grid-template-columns: repeat(3, minmax(0, 1fr)) !important;
+    gap: 1.65rem 1.35rem !important;
   }
 }
 
-@media (max-width: 900px) {
+@media (max-width: 1200px) and (min-width: 768px) {
   .services-grid {
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-    gap: 1.25rem;
+    grid-template-columns: repeat(3, minmax(0, 1fr)) !important;
+    gap: 1.35rem 1.15rem !important;
   }
+}
+
+@media (max-width: 991px) and (min-width: 768px) {
+  .services-section {
+    padding: 3.5rem 0 3rem;
+  }
+
+  .services-grid {
+    grid-template-columns: repeat(3, minmax(0, 1fr)) !important;
+    gap: 1.25rem 1rem !important;
+  }
+
   .services-header-wrap {
     flex-direction: column;
     align-items: flex-start;
     gap: 1.25rem;
   }
+
+  .services-header-cta {
+    width: auto;
+  }
 }
 
-@media (max-width: 580px) {
-  .services-grid {
-    grid-template-columns: 1fr;
-    gap: 1.25rem;
-  }
+/* Phone screen breakpoint: exactly 1 card in center */
+@media (max-width: 767px) {
   .services-section {
-    padding: 3.5rem 0 3rem;
+    padding: 3.25rem 0 2.75rem;
+  }
+
+  .services-container {
+    padding: 0 1.15rem;
+  }
+
+  .services-header-wrap {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 1.15rem;
+    margin-bottom: 1.75rem;
+  }
+
+  .services-heading-block {
+    max-width: 100%;
+  }
+
+  .services-kicker {
+    font-size: 0.74rem;
+    padding: 0.36rem 0.95rem;
+    letter-spacing: 0.12em;
+    margin-bottom: 0.75rem;
+  }
+
+  .services-title {
+    font-size: clamp(1.65rem, 6.5vw, 2.1rem);
+    line-height: 1.22;
+    margin-bottom: 0.45rem;
+  }
+
+  .services-subtitle {
+    font-size: 0.9rem;
+    line-height: 1.5;
+  }
+
+  .services-header-cta {
+    width: 100%;
+  }
+
+  .services-header-btn {
+    width: 100%;
+    justify-content: center;
+    padding: 0.8rem 1.4rem;
+    font-size: 0.9rem;
+  }
+
+  /* Exactly 1 card per line, centered on phone */
+  .services-grid {
+    grid-template-columns: 1fr !important;
+    justify-items: center !important;
+    gap: 1.35rem !important;
+    margin-bottom: 1.75rem;
+  }
+
+  .service-card {
+    width: 100% !important;
+    max-width: 440px !important;
+    margin: 0 auto !important;
+    padding: 1.25rem 1.15rem 1.15rem;
+    border-radius: 18px;
+  }
+
+  .service-card-media {
+    height: 155px;
+    border-radius: 12px;
+  }
+
+  .service-card-title {
+    font-size: 1.1rem;
+    line-height: 1.34;
+  }
+
+  .service-card-sub {
+    font-size: 0.8rem;
+    line-height: 1.45;
+  }
+}
+
+@media (max-width: 480px) {
+  .services-section {
+    padding: 2.75rem 0 2.25rem;
+  }
+
+  .services-container {
+    padding: 0 0.85rem;
+  }
+
+  .services-kicker {
+    font-size: 0.72rem;
+    padding: 0.32rem 0.85rem;
+    letter-spacing: 0.12em;
+    margin-bottom: 0.7rem;
+  }
+
+  .services-title {
+    font-size: 1.55rem;
+    line-height: 1.24;
+    margin-bottom: 0.45rem;
+  }
+
+  .services-subtitle {
+    font-size: 0.85rem;
+    line-height: 1.48;
+  }
+
+  .services-grid {
+    gap: 1.15rem;
+  }
+
+  .service-card {
+    max-width: 100%;
+    padding: 1.1rem 1rem 1rem;
+    border-radius: 16px;
+  }
+
+  .service-card-media {
+    height: 145px;
+  }
+
+  .service-card-header {
+    margin-bottom: 0.95rem;
+  }
+
+  .service-icon-box {
+    width: 40px;
+    height: 40px;
+  }
+
+  .service-card-arrow {
+    width: 34px;
+    height: 34px;
+  }
+
+  .service-card-title {
+    font-size: 1.02rem;
+  }
+
+  .service-chip-tag {
+    font-size: 0.65rem;
+    padding: 0.18rem 0.48rem;
+  }
+}
+
+/* Touch device interactions */
+@media (hover: none) {
+  .service-card:hover {
+    transform: none;
+  }
+
+  .service-card:active {
+    transform: scale(0.985);
   }
 }
